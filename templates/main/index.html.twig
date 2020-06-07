@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inici - OCI APP{% endblock %}
+
+{% block body %}
+    <div class="alert alert-primary mt-4 mb-1 ml-5 mr-5" role="alert">
+        Benvingut a Oci App! Aquesta aplicació et permet accedir a la base de dades d'ofertes d'oci utilitzant la api Oci API.
+        Abans de fer qualsevol operació has d'engegar la API! <br>
+    </div>
+
+    <div class="container justify-content-center mt-2">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-inici-tab" data-toggle="tab" href="#nav-inici" role="tab" aria-controls="nav-inici" aria-selected="true">Inici</a>
+                <a class="nav-item nav-link" id="nav-afegir-tab" data-toggle="tab" href="#nav-afegir" role="tab" aria-controls="nav-afegir" aria-selected="false">Afegir</a>
+                <a class="nav-item nav-link" id="nav-actualitzar-tab" data-toggle="tab" href="#nav-actualitzar" role="tab" aria-controls="nav-actualitzar" aria-selected="false">Actualitzar</a>
+                <a class="nav-item nav-link" id="nav-eliminar-tab" data-toggle="tab" href="#nav-eliminar" role="tab" aria-controls="nav-eliminar" aria-selected="false">Eliminar</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="mt-3 tab-pane fade show active" id="nav-inici" role="tabpanel" aria-labelledby="nav-inici-tab">
+                <h3>Llistat d'ofertes d'oci disponibles</h3>
+                {% include 'main/tableSimple.html.twig' with {'ofertes': ofertes} %}
+
+            </div>
+            <div class="mt-3 tab-pane fade" id="nav-afegir" role="tabpanel" aria-labelledby="nav-afegir-tab">
+                {% include 'main/formAdd.html.twig' with {'url': url} %}
+            </div>
+            <div class="mt-3 tab-pane fade" id="nav-actualitzar" role="tabpanel" aria-labelledby="nav-actualitzar-tab">
+                <h3>Llistat d'ofertes d'oci disponibles per actualitzar</h3>
+                {% include 'main/tableEdit.html.twig' with {'ofertes': ofertes} %}
+            </div>
+            <div class="mt-3 tab-pane fade" id="nav-eliminar" role="tabpanel" aria-labelledby="nav-eliminar-tab">
+                <h3>Llistat d'ofertes d'oci disponibles per esborrar</h3>
+                {% include 'main/tableDelete.html.twig' with {'ofertes': ofertes} %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

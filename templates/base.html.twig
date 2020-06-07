@@ -2,10 +2,22 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Inici - OCI APP{% endblock %}</title>
+        {{ include('headerCSS.html.twig') }}
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        {% block navBar %}
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="{{ path("index") }}">Oci APP</a>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active ml-2" href="{{ path("index") }}">Home</a>
+                    </div>
+                </div>
+                <button class="btn btn-outline-primary ml-5">Login</button>
+            </nav>
+        {% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

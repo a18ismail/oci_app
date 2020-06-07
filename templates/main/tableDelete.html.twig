@@ -1,0 +1,40 @@
+{% block tableSimple %}
+
+    <table class="table table-hover table-dark mt-3">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Gènere</th>
+            <th scope="col">Descripció</th>
+            <th>Acció</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for key, item in ofertes %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.nom }}</td>
+                <td>{{ item.genere }}</td>
+                <td>{{ item.descripcio }}</td>
+                <td>
+                    <button id="btnEliminar-{{ item.id }}" type="button" class="btn btn-warning" data-toggle="modal">Eliminar</button>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% for key, item in ofertes %}
+        {% include 'main/modalDelete.html.twig' with {'oferta': item} %}
+    {% endfor %}
+
+    <script>
+        {% for key, item in ofertes %}
+        $("#btnEliminar-{{ item.id }}").click(function() {
+            $('#eliminarModal-{{ item.id }}').modal('show');
+        });
+        {% endfor %}
+    </script>
+
+{% endblock %}

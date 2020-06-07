@@ -1,0 +1,47 @@
+{% block modalEdit %}
+
+    <div class="modal fade" id="editarModal-{{ item.id }}" tabindex="-1" role="dialog" aria-labelledby="editarModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edita aquesta oferta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ path('editar') }}" method="post">
+                        <input type="hidden" name="inputEditarId" id="inputEditarId" value="{{ item.id }}">
+                        <div class="form-group row">
+                            <label for="inputEditarNom" class="col-sm-2 col-form-label text-center">Nom</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="inputEditarNom" name="inputEditarNom" placeholder="Nom" value="{{ item.nom }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputEditarGenere" class="col-sm-2 col-form-label text-center">Gènere</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="inputEditarGenere" name="inputEditarGenere" placeholder="Gènere" value="{{ item.genere }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputEditarDescripcio" class="col-sm-2 col-form-label text-center">Descripció</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="inputEditarDescripcio" rows="2" name="inputEditarDescripcio" placeholder="Descripció">{{ item.descripcio }}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 d-flex flex-row-reverse">
+                                <button type="submit" class="btn btn-outline-primary">Editar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Tancar modal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

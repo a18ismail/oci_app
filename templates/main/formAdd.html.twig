@@ -1,0 +1,45 @@
+{% block form %}
+
+    <form id="formAfegir" action="{{ path('afegir') }}" method="POST">
+        <div class="form-group row">
+            <label for="inputAfegirNom" class="col-sm-2 col-form-label text-center">Nom</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="inputAfegirNom" name="nom" placeholder="Nom">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputAfegirGenere" class="col-sm-2 col-form-label text-center">Gènere</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="inputAfegirGenere" name="genere" placeholder="Gènere">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputAfegirDescripcio" class="col-sm-2 col-form-label text-center">Descripció</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" id="inputAfegirDescripcio" rows="2" name="descripcio" placeholder="Descripció"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-12 d-flex flex-row-reverse">
+                <button id="submitFormAfegir" type="submit" class="btn btn-outline-primary">Afegir</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+/*        document.getElementById('submitFormAfegir').addEventListener('click', function () {
+            axios.post('{{ url }}/pelicula', {
+                nom: document.getElementById('inputAfegirNom').value,
+                genere: document.getElementById('inputAfegirGenere').value,
+                descripcio: document.getElementById('inputAfegirDescripcio').value
+            })
+                .then(function (response) {
+                    console.log(response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        })*/
+    </script>
+
+{% endblock %}
